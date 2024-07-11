@@ -2,6 +2,8 @@
 // Use of this source code is governed by a BSD-style license that can be
 // found in the LICENSE file.
 
+// ignore_for_file: deprecated_member_use
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
@@ -341,6 +343,9 @@ class _PageBasedSheetRoute<T> extends SheetRoute<T> {
   }) : super(settings: page, builder: (BuildContext context) => page.child);
 
   SheetPage<T> get _page => settings as SheetPage<T>;
+
+  @override
+  WidgetBuilder get builder => (context) => _page.child;
 
   @override
   bool get maintainState => _page.maintainState;
